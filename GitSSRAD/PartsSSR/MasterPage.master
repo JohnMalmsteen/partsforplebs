@@ -1,0 +1,179 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+        }
+        .btnstyle
+        {
+           border:solid blue;
+           background-color:Aqua;
+           border-bottom-style:none;
+           border-left-style:none;
+           border-top-style:none;
+           border-right-style:solid;
+           border-right-color:Purple;
+           width:150px;  
+        }
+
+    </style>
+    <style type="text/css">
+        ul#menu li
+        {
+            display:inline;           
+         }
+        #menu
+        {
+            text-align: center;
+            background-color:Aqua;
+        }
+
+        .style2
+        {
+            width: 140px;
+        }
+        .style3
+        {
+            width: 1378px;
+            text-align: left;
+        }
+
+        .style4
+        {
+            width: 140px;
+            height: 23px;
+        }
+        .style5
+        {
+            width: 1378px;
+            text-align: left;
+            height: 23px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    </div>
+        <table class="style1">
+            <tr>
+                <td class="style2">
+                    <asp:HyperLink ID="hlkSignIn" runat="server" 
+                        NavigateUrl="~/RegAccountPage.aspx">Sign In </asp:HyperLink>
+&nbsp;<asp:Label ID="lblSignIn" runat="server" Text="to your Account"></asp:Label>
+                &nbsp;</td>
+                <td class="style3">
+                    <asp:ImageButton ID="ImageButton1" runat="server" Height="34px" 
+                        ImageAlign="Middle" ImageUrl="~/Images/BasketImages/Full-Basket-icon.png" 
+                        style="margin-left: 0px" Width="45px" />
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/shoppingCart.aspx">View Basket</asp:HyperLink>
+&nbsp;
+                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                    :
+                    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+&nbsp;<asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                    :
+                    <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+&nbsp;</td>
+                <td class="style2">
+                    <asp:ImageButton ID="ImageButton2" runat="server" Height="34px" 
+                        ImageAlign="Middle" ImageUrl="~/Images/BasketImages/Checkout-Basket-icon.png" 
+                        Width="45px" />
+                    <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    &nbsp;</td>
+                <td class="style3">
+                    <asp:SiteMapDataSource ID="SiteMapDataSourceMenu" runat="server" />
+                    <asp:SiteMapDataSource ID="SiteMapDataSourceTree" runat="server" />
+                    <br />
+                </td>
+                <td class="style2">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    &nbsp;</td>
+                <td style="text-align: left">
+
+                   
+
+                    <asp:Menu ID="mnuMain" runat="server" DataSourceID="SiteMapDataSourceMenu" 
+                        StaticSubMenuIndent="16px">
+                        <DynamicItemTemplate>
+                            <asp:Button ID="Button1" runat="server" Text="Button" />
+                        </DynamicItemTemplate>
+                    </asp:Menu>
+
+                   
+
+                    <br />
+
+                   
+                </td>
+                <td class="style2">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style2">
+
+                    <asp:TreeView ID="TreeView1" runat="server" 
+                        DataSourceID="SiteMapDataSourceTree">
+                    </asp:TreeView>
+
+                </td>
+                <td class="style3" >
+
+                  <ul id="menu" >
+                  <li><asp:Button ID="btnHome" CssClass="btnstyle" Text="Home" runat="server" PostBackUrl="~/HomePage.aspx"></asp:Button> </li>
+                  <li><asp:Button ID="btnCpu" CssClass="btnstyle" Text="Processors" runat="server" 
+                          PostBackUrl="~/ProcessorPage.aspx" onclick="btnCpu_Click"></asp:Button> </li>
+                  <li><asp:Button ID="btnMotherBoards" CssClass="btnstyle" Text="Mother Boards" runat="server" PostBackUrl="~/MotherBoardsPage.aspx"></asp:Button></li>
+                  <li><asp:Button ID="btnMemory" CssClass="btnstyle" Text="Memory" runat="server" 
+                          PostBackUrl="~/MemoryPage.aspx"></asp:Button></li>
+                  <li><asp:Button ID="btnPowerSupply" CssClass="btnstyle" Text="Power Supply" 
+                          runat="server" PostBackUrl="~/PowerSupplyPage.aspx"></asp:Button></li>
+                  <li><asp:Button ID="btnHardDrives" CssClass="btnstyle" Text="Hard Drives" 
+                          runat="server" PostBackUrl="~/HardDriversPage.aspx"></asp:Button></li>
+                  <li><asp:Button ID="btnGraphicCards" CssClass="btnstyle" Text="Graphics Cards" 
+                          runat="server" PostBackUrl="~/GraphicsCardsPage.aspx"></asp:Button></li>
+                  <li><asp:Button ID="btnCases" CssClass="btnstyle" Text="Cases" runat="server" 
+                          PostBackUrl="~/CasesPage.aspx" ></asp:Button></li>
+                  <li><asp:Button ID="btnBuildPC" CssClass="btnstyle" Text="Build PC" runat="server" 
+                          PostBackUrl="~/BuildPcPage.aspx" BorderStyle="None"></asp:Button></li>
+                  </ul>  &nbsp;</td>
+                <td class="style2">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style4">
+                    </td>
+                <td class="style5">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+                </td>
+                <td class="style4">
+                    </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center">
+
+                    Footer</td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
